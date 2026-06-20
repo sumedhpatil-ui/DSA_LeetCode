@@ -12,14 +12,13 @@ public:
         {
             heights[i + 1] = min(heights[i+1], heights[i] + diff[i]);
         }
+        int ans = 0;
         for(int j = n-2; j >= 0; j--)
         {
             heights[j] = min(heights[j], heights[j+1] + diff[j]);
+            ans = max(ans, heights[j]);
         }
 
-        int ans = 0;
-        for(int i : heights)
-            ans = max(ans, i);
-        return ans;
+        return max(ans, heights[n-1]);
     }
 };
