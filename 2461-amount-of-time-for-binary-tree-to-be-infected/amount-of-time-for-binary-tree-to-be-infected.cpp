@@ -48,14 +48,12 @@ public:
 
             for(auto adjNode : adj[node])
             {
-                bool flag = false;
                 if(!vis[adjNode])
                 {
                     vis[adjNode] = true;
                     q.push({adjNode, count + 1});
-                    flag = true;
                 }
-                if(!flag) ans = max(ans, count);
+                ans = max(ans, count);
             }
         }
         return ans;
