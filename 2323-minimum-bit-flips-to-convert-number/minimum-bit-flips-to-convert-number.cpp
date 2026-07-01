@@ -5,8 +5,7 @@ public:
         int cnt = 0;
         while(x)
         {
-            if(x & 1)
-                cnt++;
+            cnt += (x & 1);
             x >>= 1;
         }
         return cnt;
