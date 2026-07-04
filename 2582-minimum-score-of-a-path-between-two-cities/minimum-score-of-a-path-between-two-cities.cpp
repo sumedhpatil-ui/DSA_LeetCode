@@ -52,16 +52,11 @@ public:
 
         if(ds.uPar(1) != ds.uPar(n))
             return -1;
-
+        int root = ds.uPar(1);
         for(auto it : roads)
         {
-            int u = it[0];
-            int v = it[1]; 
-            int w = it[2];
-            if(ds.uPar(u) == ds.uPar(1))
-            {
-                ans = min(ans, w);
-            }
+            if(ds.uPar(it[0]) == root)
+                ans = min(ans, it[2]);
         }
         return ans;
     }
