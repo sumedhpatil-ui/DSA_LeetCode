@@ -8,17 +8,16 @@ public:
                  return a[0] < b[0];
              });
         int n = intervals.size();
-        int cnt = 0;
+        int cnt = 1;
         int maxEnd = intervals[0][1];
         for(int i = 1; i < n; i++)
         {
-            if(intervals[i][1] <= maxEnd)
+            if(intervals[i][1] > maxEnd)
             {
                 cnt++;
-            }
-            else
                 maxEnd = intervals[i][1];
+            }
         }
-        return n - cnt;
+        return cnt;
     }
 };
