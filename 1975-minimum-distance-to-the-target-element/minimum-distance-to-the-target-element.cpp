@@ -7,14 +7,20 @@ public:
         while(i >= 0)
         {
             if(nums[i] == target)
-                ans = min(ans, abs(start - i));
+            {
+                ans = min(ans, start - i);
+                break;
+            }
             i--;
         }
         i = start + 1;
         while(i < n)
         {
             if(nums[i] == target)
-                ans = min(ans, abs(start - i));
+            {
+                ans = min(ans, i - start);
+                break;
+            }
             i++;
         }
         return ans;
