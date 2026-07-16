@@ -9,12 +9,12 @@ public:
 
     long long gcdSum(vector<int>& nums) {
         int n = nums.size();
-        vector<int> prefixGcd(n);
+        vector<int> prefixGcd;
         int mx = nums[0];
-        for(int i = 0; i < n; i++)
+        for(int &x : nums)
         {
-            mx = max(mx, nums[i]);
-            prefixGcd[i] = gcd(mx, nums[i]);
+            mx = max(mx, x);
+            prefixGcd.push_back(gcd(mx, x));
         }
 
         sort(prefixGcd.begin(), prefixGcd.end());
@@ -22,11 +22,7 @@ public:
         long long sum = 0;
         int i = 0, j = n - 1;
         while(i < j)
-        {
-            sum = sum +  gcd(prefixGcd[i], prefixGcd[j]);
-            i++;
-            j--;
-        }
+            sum = sum +  gcd(prefixGcd[i++], prefixGcd[j--]);
         return sum;
     }
 };
