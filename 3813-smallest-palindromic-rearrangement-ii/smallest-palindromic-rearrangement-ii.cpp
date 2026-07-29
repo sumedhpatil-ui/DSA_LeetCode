@@ -1,20 +1,6 @@
 class Solution {
 public:
     int per; 
-    long long fact(int n, long long limit)
-    {
-        long long ans = 1;
-
-        for(int i = 2; i <= n; i++)
-        {
-            if(ans > limit / i)
-                return limit + 1;
-
-            ans *= i;
-        }
-
-        return ans;
-    }
 
     long long nCr(int n, int r, long long limit)
     {
